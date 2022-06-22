@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @ranoaritsiky
 - 👀 I’m interested in new tech
-- 🌱 I’m currently learning everything
+- 🌱 I’m currently learning Python
 - 💞️ I’m looking to collaborate on you
 - 📫 How to reach me ranoaritsiky@gmail.com
 
