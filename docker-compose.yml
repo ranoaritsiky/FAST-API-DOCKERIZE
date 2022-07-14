@@ -1,0 +1,36 @@
+version: '3.1'
+services:
+  db:
+    container_name: "postgres_db"
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment: 
+      POSTGRES_PASSWORD: mypostgrespassword
+      POSTGRES_USER: postgres
+      POSTGRES_DB: bd_fast_api
+    ports:
+      - "5433:5432"
+    networks:
+      - hr-net
+  
+
+  fast-api:
+    container_name: "fast_api_project"
+    build: ./docker/fastapi/
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/usr/src/app
+    networks:
+      - hr-net
+    depends_on:
+      - db
+    links:
+      - db
+
+networks:
+  hr-net:
+    driver: bridge
